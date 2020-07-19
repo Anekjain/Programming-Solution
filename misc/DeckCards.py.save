@@ -1,0 +1,76 @@
+#!/usr/bin/env python
+import random
+import array
+
+#FISHER-YATES ALGORITHM [IN-PLACE]
+def shuffle_deck(arr, n):
+	for i in range(n-1, 0 ,-1):
+		j = random.randint(0,i+1)
+		arr[j], arr[i] = arr[i], arr[j]
+	return arr
+
+# GETTING J,Q,K,A values
+def intoDeck(arr):
+	if 11 in arr:
+		i = arr.index(11)
+		arr[i] = 'J'
+	if 12	 in arr:
+		i = arr.index(12)
+		arr[i] = 'Q'
+	if 13	 in arr:
+		i = arr.index(13)
+		arr[i] = 'K'
+	if 14	 in arr:
+		i = arr.index(14)
+		arr[i] = 'A'
+	return arr
+
+#Getting an randomized SET of CARDS
+def getCards():
+	deck  = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+	n = len(deck)
+	rand_deck = shuffle_deck(deck,n)
+	#print rand_deck
+	dec0 = intoDeck(rand_deck)
+	dec1 = intoDeck(rand_deck)
+	dec2 = intoDeck(rand_deck)
+	dec3 = intoDeck(rand_deck)
+	set = dec0 + dec1 + dec2 + dec3
+	return set
+
+#DEALING CARDS TO TWO OPPONENTS
+def Card_Dealing(c):
+	cards = c
+	Player_A = []
+	Player_B = []
+	for i in range(0, len(cards)-1, 1):
+		if(i%2 == 0):
+			Player_A.append(cards[i])
+		else:
+			Player_B.append(cards[i])
+	return Player_A, Player_B
+
+#GAME LOGIC
+def Game(player1,player2):
+	i = 0
+	while (len(player1) == 0 or len(player2) == 0):
+		if ( player1[i] > player2[i]):
+			player1.append(player1.pop())
+			player1.append(player2.pop())
+			i += 1
+		elif (player1[i] < player2[i]):
+			player2.append(player2.pop())
+			player2.append(player1.pop())
+			i += 1
+		elif (player
+
+MAIN FUNCTION
+if __name__=="__main__":
+	Cards = getCards()
+	print "SET OF CARDS:"
+	print Cards
+	A, B = Card_Dealing(Cards)
+	print "A - CARDS:"
+	print A
+	print "B - CARDS:"
+	print B

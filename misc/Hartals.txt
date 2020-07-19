@@ -1,0 +1,32 @@
+Problem:
+Every Political Party has a hartal parameter = h,
+There are no Hartals on either Friday or Saturday.
+No of Days of Stimulation is nod
+We should find no of No of working days lost in a nod.
+
+Example:
+Input - 
+No of Stimulation days nod = 14
+No of Political Parties nop = 3
+Hartal parameter of Political Party h0 = 3
+				    h1 = 4
+				    h2 = 8
+Output:
+No of Days Lost in Hartal lost_days = 5	
+
+NOTE : Hartal on Friday or Saturday is not counted.
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Solution 1 [Algorithm]:
+--------------------------
+1. Using Dictionary [Hash Map] to stimulate days with
+default value 0
+2. Iterating Dictonary.keys
+    if (keys mod hartal paratmeter == 0 and (keys != 6 and 7):
+	value = 1
+3.get lenght all values which equals 1 
+	-> Working Days lost due to Hartal.
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Solution 2 [Algorithm]:
+--------------------------
+
+
